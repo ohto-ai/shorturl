@@ -1,0 +1,21 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "short-url"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+
+# 仅通过自定义域名提供服务;部署时自动创建 s.ohtoai.top 的精确 DNS 记录(优先于现有泛解析生效)
+workers_dev = false
+routes = [
+  { pattern = "s.ohtoai.top", custom_domain = true }
+]
+
+[observability]
+enabled = true
+
+[triggers]
+crons = ["0 3 * * *"] # 每日 03:00 UTC 清理过期日志与链接
+
+[[d1_databases]]
+binding = "DB"
+database_name = "short-url"
+database_id = "8cfc90db-5fdd-4f5f-8b84-8c5230583beb"

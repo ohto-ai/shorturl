@@ -1,0 +1,33 @@
+{
+  "name": "shorturl",
+  "description": "基于 Cloudflare Workers + D1 的个人短链服务(s.ohtoai.top)",
+  "author": "ohto-ai <me@ohtoai.top>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ohto-ai/shorturl.git"
+  },
+  "keywords": [
+    "short-url",
+    "url-shortener",
+    "cloudflare-workers",
+    "d1"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "db:init:local": "wrangler d1 execute short-url --local --file=schema.sql",
+    "db:init:remote": "wrangler d1 execute short-url --remote --file=schema.sql"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5",
+    "typescript": "^5",
+    "wrangler": "^4"
+  }
+}

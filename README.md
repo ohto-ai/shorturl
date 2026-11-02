@@ -47,7 +47,7 @@ npx wrangler secret put CREATE_TOKEN               # 输入一个随机长字符
 npx wrangler deploy                                # 自动创建 s.ohtoai.top 的精确 DNS 记录(覆盖泛解析)
 ```
 
-部署完成后访问 **https://s.ohtoai.top/admin**,输入 CREATE_TOKEN 即可开始使用。
+部署完成后访问 **https://s.ohtoai.top/admin** ,输入 CREATE_TOKEN 即可开始使用。
 
 > 若部署时报 custom domain 冲突,改在 Dashboard → Workers → short-url → Settings → Domains & Routes 手动添加 `s.ohtoai.top` 即可,`wrangler.toml` 中的 `routes` 可删除。
 
